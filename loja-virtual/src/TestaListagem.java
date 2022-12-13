@@ -1,19 +1,15 @@
 import java.sql.*;
-import java.util.List;
 
 public class TestaListagem {
 
     public static void main(String[] args) throws SQLException {
 
         ConnectionFactory criaConexao = new ConnectionFactory();
-
         Connection connection = criaConexao.recuperarConexao();
 
-       Statement statement = connection.createStatement();
-       statement.execute("SELECT ID, NOME, DESCRICAO FROM PRODUTO");
-
-       ResultSet resultSet = statement.getResultSet();
-
+       PreparedStatement preparedStatement = connection.prepareStatement("SELECT ID, NOME, DESCRICAO FROM PRODUTO");
+        preparedStatement.execute();
+       ResultSet resultSet = preparedStatement.getResultSet();
        while(resultSet.next()){
            Integer id = resultSet.getInt("ID");
            System.out.println(id);
