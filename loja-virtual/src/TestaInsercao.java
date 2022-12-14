@@ -15,7 +15,7 @@ public class TestaInsercao {
 
         ResultSet resultSet = statement.getGeneratedKeys();
         while (resultSet.next()){
-                Integer id = resultSet.getInt(1);
+                int id = resultSet.getInt(1);
             System.out.println("O id criado foi: " + id);
         }
     }

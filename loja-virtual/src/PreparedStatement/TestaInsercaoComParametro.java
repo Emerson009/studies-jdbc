@@ -13,7 +13,7 @@ public class TestaInsercaoComParametro {
         try(
         PreparedStatement preparedStatement = connection.prepareStatement(
                 "INSERT INTO PRODUTO (nome, descricao) VALUES (?, ?)",
-                Statement.RETURN_GENERATED_KEYS);
+                Statement.RETURN_GENERATED_KEYS)
             ){
                 adicionarVariavel("LG Smart TV", "50 polegadas", preparedStatement);
                 adicionarVariavel("Radio", "Radio de bateria", preparedStatement);
@@ -39,7 +39,7 @@ public class TestaInsercaoComParametro {
 
         try(ResultSet resultSet = preparedStatement.getGeneratedKeys()) {
             while (resultSet.next()) {
-                Integer id = resultSet.getInt(1);
+                int id = resultSet.getInt(1);
                 System.out.println("O id criado foi: " + id);
             }
         }
