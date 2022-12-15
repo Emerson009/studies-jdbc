@@ -1,5 +1,7 @@
 package PreparedStatement;
 
+import factory.ConnectionFactory;
+
 import java.sql.*;
 
 public class TestaInsercaoComParametro {
